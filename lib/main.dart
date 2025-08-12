@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:proyectofinalmovil/src/screens/news/news_screen.dart';
+import 'package:proyectofinalmovil/src/screens/services/services_screens.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,6 +32,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
+      debugShowCheckedModeBanner: false,
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -104,6 +107,25 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            _elevatedButton(
+              context,
+              'SERVICIOS',
+              () => Navigator.push(  
+                context, MaterialPageRoute(
+                  builder: (context) => ServicesScreens()
+                )
+              ), 
+            ),
+            _elevatedButton(
+              context,
+              'NOTICIAS',
+              () => Navigator.push(  
+                context, MaterialPageRoute(
+                  builder: (context) => NewsScreen()
+                )
+              ), 
+            ),
+            
             const Text('You have pushed the button this many times:'),
             Text(
               '$_counter',
@@ -119,4 +141,20 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
+
+  Widget _elevatedButton(BuildContext context, String title, Function() onPressed ) {
+    return SizedBox(
+      width: double.infinity,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15)
+          )
+        ),
+        onPressed: onPressed,
+        child: Text(title)
+      ),
+    );
+  }
+  
 }
