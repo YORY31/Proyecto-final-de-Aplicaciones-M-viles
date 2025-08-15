@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:proyectofinalmovil/core/theme/app_color.dart';
 import 'package:proyectofinalmovil/core/theme/app_text_styles.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SobreNosotrosScreen extends StatelessWidget {
   const SobreNosotrosScreen({super.key});
+
+  final String youtubeUrl = "https://youtu.be/OvhDOwcmJ50";
+
+  void _launchYoutube() async {
+    final Uri url = Uri.parse(youtubeUrl);
+    if (await canLaunchUrl(url)) {
+      await launchUrl(url, mode: LaunchMode.externalApplication);
+    } else {
+      debugPrint("No se pudo abrir el enlace: $youtubeUrl");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,16 +53,8 @@ class SobreNosotrosScreen extends StatelessWidget {
             const SizedBox(height: 20),
             Text("Video Institucional", style: AppTextStyles.heading1),
             const SizedBox(height: 8),
-            ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.network(
-                "https://youtu.be/OvhDOwcmJ50?si=eB_wRNyd_2oEa1vx",
-                fit: BoxFit.cover,
-              ),
-            ),
-            const SizedBox(height: 10),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: _launchYoutube,
               style: ElevatedButton.styleFrom(
                 backgroundColor: AppColors.secondary,
                 shape: RoundedRectangleBorder(
