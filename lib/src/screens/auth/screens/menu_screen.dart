@@ -60,7 +60,7 @@ class MenuScreen extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Mobile Green Kode',
+                            'AmbientFlow',
                             style: TextStyle(
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
@@ -93,47 +93,53 @@ class MenuScreen extends StatelessWidget {
                 mainAxisSpacing: 16,
                 children: [
                   _buildMenuCard(
-                    icon: Icons.dashboard,
-                    title: 'Dashboard',
-                    subtitle: 'Vista general',
+                    icon: Icons.article,
+                    title: 'Noticias',
+                    subtitle: 'Ver noticias ambientales',
                     color: Colors.blue,
-                    onTap: () {
-                      // Implementar navegación
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Dashboard - En desarrollo')),
-                      );
-                    },
+                    onTap: () => Navigator.pushNamed(context, '/news'),
+                  ),
+                  _buildMenuCard(
+                    icon: Icons.room_service,
+                    title: 'Servicios',
+                    subtitle: 'Servicios disponibles',
+                    color: Colors.green,
+                    onTap: () => Navigator.pushNamed(context, '/services'),
                   ),
                   _buildMenuCard(
                     icon: Icons.nature_people,
-                    title: 'Proyectos',
-                    subtitle: 'Gestionar proyectos',
-                    color: Colors.green,
-                    onTap: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Proyectos - En desarrollo')),
-                      );
-                    },
+                    title: 'Áreas Protegidas',
+                    subtitle: 'Explorar áreas protegidas',
+                    color: Colors.teal,
+                    onTap: () => Navigator.pushNamed(context, '/areas-protegidas'),
                   ),
                   _buildMenuCard(
-                    icon: Icons.analytics,
-                    title: 'Reportes',
-                    subtitle: 'Análisis y métricas',
+                    icon: Icons.report_problem,
+                    title: 'Crear Reporte',
+                    subtitle: 'Reportar daño ambiental',
                     color: Colors.orange,
-                    onTap: () {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(content: Text('Reportes - En desarrollo')),
-                      );
-                    },
+                    onTap: () => Navigator.pushNamed(context, '/create-report'),
+                  ),
+                  _buildMenuCard(
+                    icon: Icons.assignment,
+                    title: 'Mis Reportes',
+                    subtitle: 'Ver mis reportes',
+                    color: Colors.purple,
+                    onTap: () => Navigator.pushNamed(context, '/my-reports'),
+                  ),
+                  _buildMenuCard(
+                    icon: Icons.map,
+                    title: 'Mapa Reportes',
+                    subtitle: 'Ver reportes en mapa',
+                    color: Colors.indigo,
+                    onTap: () => Navigator.pushNamed(context, '/reports-map'),
                   ),
                   _buildMenuCard(
                     icon: Icons.settings,
                     title: 'Configuración',
                     subtitle: 'Ajustes del sistema',
                     color: Colors.grey,
-                    onTap: () {
-                      Navigator.pushNamed(context, '/change-password');
-                    },
+                    onTap: () => Navigator.pushNamed(context, '/change-password'),
                   ),
                 ],
               ),
@@ -229,4 +235,5 @@ class MenuScreen extends StatelessWidget {
 //       },
 //     );
 //   }
+// }
 // }
