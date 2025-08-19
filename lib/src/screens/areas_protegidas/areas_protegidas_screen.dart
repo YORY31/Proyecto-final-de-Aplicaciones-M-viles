@@ -5,8 +5,9 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:proyectofinalmovil/src/screens/areas_protegidas/areas_protegidas.dart';
 
 class AreasProtegidasScreen extends StatefulWidget {
+  const AreasProtegidasScreen({super.key});
   @override
-  _AreasProtegidasScreenState createState() => _AreasProtegidasScreenState();
+  createState() => _AreasProtegidasScreenState();
 }
 
 class _AreasProtegidasScreenState extends State<AreasProtegidasScreen>
@@ -16,7 +17,7 @@ class _AreasProtegidasScreenState extends State<AreasProtegidasScreen>
   List<AreaProtegida> _filteredAreas = [];
   bool _isLoading = true;
   String _searchQuery = '';
-  GoogleMapController? _mapController;
+  GoogleMapController? mapController;
   Set<Marker> _markers = {};
 
   @override
@@ -300,10 +301,10 @@ class _AreasProtegidasScreenState extends State<AreasProtegidasScreen>
                           backgroundImage: area.imagen.isNotEmpty
                               ? NetworkImage(area.imagen)
                               : null,
+                          backgroundColor: Colors.green[100],
                           child: area.imagen.isEmpty
                               ? Icon(Icons.nature, color: Colors.green)
                               : null,
-                          backgroundColor: Colors.green[100],
                         ),
                         title: Text(
                           area.nombre,
@@ -354,7 +355,7 @@ class _AreasProtegidasScreenState extends State<AreasProtegidasScreen>
       ),
       markers: _markers,
       onMapCreated: (GoogleMapController controller) {
-        _mapController = controller;
+        mapController = controller;
       },
       mapType: MapType.normal,
       myLocationButtonEnabled: true,
@@ -367,7 +368,7 @@ class _AreasProtegidasScreenState extends State<AreasProtegidasScreen>
 class AreaDetailScreen extends StatelessWidget {
   final AreaProtegida area;
 
-  const AreaDetailScreen({Key? key, required this.area}) : super(key: key);
+  const AreaDetailScreen({super.key, required this.area});
 
   @override
   Widget build(BuildContext context) {

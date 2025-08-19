@@ -37,6 +37,8 @@ dependencies:
   intl: ^0.20.2
   url_launcher: ^6.3.1
   google_maps_flutter: ^2.12.3
+  youtube_player_flutter: ^9.1.2
+  webview_flutter: ^4.13.0
   
 
   # The following adds the Cupertino Icons font to your application.

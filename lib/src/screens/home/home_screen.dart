@@ -3,7 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart' as cs;
 import 'package:proyectofinalmovil/core/theme/app_color.dart';
 
 class HomeScreen extends StatelessWidget {
-  HomeScreen({super.key});
+  const HomeScreen({super.key});
 
   final List<String> imgList = const [
     "https://picsum.photos/id/18/800/1600",
@@ -37,7 +37,14 @@ class HomeScreen extends StatelessWidget {
 
           // Capa oscura para legibilidad
           Positioned.fill(
-            child: Container(color: Colors.black.withOpacity(0.4)),
+            child: Container(
+              color: Colors.black.withValues(
+                red: 0.0,
+                green: 0.0,
+                blue: 0.0,
+                alpha: 0.4,
+              ),
+            ),
           ),
 
           // Texto central
